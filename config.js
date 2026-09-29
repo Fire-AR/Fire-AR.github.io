@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
   youtube: {
     handle: "@firear",
     channelId: "UCWrUF3tFwzMOHYspe4-iJ6w",
-    apiKey: "",       // אופציונלי: מנויים וצפיות בזמן אמת + זיהוי לייב ביוטיוב (הסבר ב-README)
+    apiKey: "AIzaSyB8LhTUuBsUKYkMhtMJstFhkW86lvykEKA",       // נעול לכתובות של האתרים ב-Google Cloud. אופציונלי: מנויים וצפיות בזמן אמת + זיהוי לייב ביוטיוב (הסבר ב-README)
   },
   kick: "",           // אין ערוץ Kick
 
