@@ -387,5 +387,18 @@
   </div>
 </dialog>
 
+<!-- קוד היוצר, קטן בצד. לחיצה מעתיקה את הקוד -->
+<button class="creator-tag" id="creatorTag" type="button" aria-label="קוד יוצר בחנות של פורטנייט: EAF. לחיצה מעתיקה">
+  <span class="creator-tag__label">קוד יוצר</span>
+  <span class="creator-tag__code">EAF</span>
+</button>
+<script>
+  document.getElementById('creatorTag').addEventListener('click', async (e) => {
+    const label = e.currentTarget.querySelector('.creator-tag__label');
+    try { await navigator.clipboard.writeText('EAF'); label.textContent = 'הועתק!'; } catch {}
+    setTimeout(() => { label.textContent = 'קוד יוצר'; }, 1600);
+  });
+</script>
+
 </body>
 </html>

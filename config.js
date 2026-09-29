@@ -56,7 +56,7 @@ window.SITE_CONFIG = {
     x: "",
     twitch: "",
     tip: "https://streamelements.com/firear/tip",   // דף תרומות
-    email: "firearbusiness@gmail.com",
+    email: "",
   },
   linkTexts: {
     youtube: "הערוץ הראשי: הדלפות, עדכונים ושורטס של פורטנייט.",
@@ -64,7 +64,6 @@ window.SITE_CONFIG = {
     instagram: "⁦@aminovariel_⁩",   // התווים בצדדים שומרים על הכיוון של השם בתוך טקסט בעברית
     whatsapp: "Fire AR VIP: כל מה שאני יודע על פורטנייט (לא רק פורטנייט).",
     tip: "תרומות לשיפור הערוץ, דרך StreamElements.",
-    email: "לפניות עסקיות: firearbusiness@gmail.com",
   },
 
 
