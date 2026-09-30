@@ -12,6 +12,10 @@
 }
 
 :root {
+  /* האדום של פייר כבר מההתחלה, כדי שלא יופיע לרגע הירוק של התבנית עד שהסקריפט רץ.
+     אם משנים את accent ב-config.js, משנים גם כאן */
+  --accent: #FE0C44;
+  --on-accent: #0b0d0c;
   --fn: "Burbank Big Condensed", "Karantina", "Rubik", system-ui, sans-serif;   /* כותרות, לוגו ומספרים */
   --fn-ui: "Burbank Big Condensed", "Rubik", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;   /* תוויות קטנות */
   --display: var(--fn);
@@ -87,3 +91,79 @@
 .creator-tag:hover { opacity: 1; border-color: var(--accent); }
 .creator-tag__label { opacity: .75; letter-spacing: .02em; }
 .creator-tag__code { color: var(--accent); font-family: var(--fn); font-size: 16px; letter-spacing: .06em; }
+
+
+/* ─── המפה בפורטנייט (FFA ישראל) ─── */
+.map { border-top: 1px solid var(--line); }
+.map__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.map__copy .display { margin-bottom: 14px; }
+.map__code {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 4px 0 22px;
+  padding: 14px 18px;
+  border: 1px dashed var(--accent-line);
+  border-radius: 14px;
+  background: var(--accent-soft);
+}
+.map__code-label { font-size: 14px; color: var(--dim); }
+.map__code-value { font-family: var(--fn); font-size: clamp(30px, 3.4vw, 40px); line-height: 1; letter-spacing: .04em; }
+.map__code .btn { margin-inline-start: auto; }
+.map__rules { margin-bottom: 20px; padding-inline-start: 16px; border-inline-start: 4px solid var(--accent); }
+.map__rules h3 { margin: 0 0 2px; font-size: 14px; font-weight: 700; color: var(--dim); }
+.map__rules p { margin: 0; font-size: clamp(18px, 1.8vw, 22px); font-weight: 800; }
+.map__steps { display: grid; gap: 10px; margin: 0 0 20px; padding: 0; list-style: none; counter-reset: map-step; }
+.map__steps li { position: relative; padding-inline-start: 38px; font-size: 15px; line-height: 1.5; color: var(--dim); counter-increment: map-step; }
+.map__steps li::before {
+  content: counter(map-step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -1px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  color: var(--accent);
+  font-family: var(--fn);
+  font-size: 16px;
+}
+.map__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; padding: 0; list-style: none; }
+.map__tags li { direction: ltr; padding: 4px 10px 3px; border-radius: 999px; background: var(--ink-3); color: var(--dim); font-family: var(--fn-ui); font-size: 14px; letter-spacing: .04em; }
+.map__art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .8), -12px 12px 0 var(--accent);
+  transition: transform .3s ease;
+}
+.map__art:hover { transform: rotate(0deg) scale(1.01); }
+.map__art img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.map__badge {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 6px 10px 4px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .72);
+  color: #fff;
+  font-family: var(--fn-ui);
+  font-size: 14px;
+  letter-spacing: .06em;
+}
+@media (max-width: 960px) {
+  .map__grid { grid-template-columns: minmax(0, 1fr); }
+  .map__art { order: -1; max-width: 640px; }
+}
+.map__flag { display: inline-block; width: .8em; height: auto; margin-inline-start: .12em; vertical-align: .08em; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .25); }
