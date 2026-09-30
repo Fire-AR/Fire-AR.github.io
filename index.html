@@ -267,10 +267,27 @@
         <a class="link-arrow" href="https://www.fortnite.com/@eaf/8991-6246-3830" target="_blank" rel="noopener">לדף המפה באתר של פורטנייט <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
-      <a class="map__art" href="https://www.fortnite.com/@eaf/8991-6246-3830" target="_blank" rel="noopener">
-        <img src="assets/img/ffa-israel.jpg" alt="FFA ישראל, המפה של Fire AR בפורטנייט" width="1920" height="1080" loading="lazy">
-        <span class="map__badge">FORTNITE CREATIVE</span>
-      </a>
+      <div class="map__side">
+        <a class="map__art" href="https://www.fortnite.com/@eaf/8991-6246-3830" target="_blank" rel="noopener">
+          <img src="assets/img/ffa-israel.jpg" alt="FFA ישראל, המפה של Fire AR בפורטנייט" width="1920" height="1080" loading="lazy">
+          <span class="map__badge">FORTNITE CREATIVE</span>
+        </a>
+
+        <!-- הטריילר של המפה (נפתח כאן בלחיצה) + ערוץ היוטיוב של המפות -->
+        <a class="map__trailer" href="https://www.youtube.com/watch?v=tcRJ_7QNshY" target="_blank" rel="noopener" data-trailer="tcRJ_7QNshY">
+          <img src="https://i.ytimg.com/vi/tcRJ_7QNshY/hqdefault.jpg" alt="" loading="lazy">
+          <span class="map__trailer-play"><svg class="icon"><use href="#i-play"/></svg></span>
+          <span class="map__trailer-title">הטריילר: <span class="ltr">FFA Israel Official is here</span></span>
+        </a>
+        <a class="map__yt" href="https://www.youtube.com/@ISRAELFORTNITEMAPS/videos" target="_blank" rel="noopener">
+          <img class="map__yt-avatar" src="assets/img/israel-fortnite-maps.jpg" alt="" width="46" height="46" loading="lazy">
+          <span class="map__yt-body">
+            <b class="ltr">ISRAEL FORTNITE MAPS</b>
+            <span>ערוץ היוטיוב של המפה: עדכונים, קרבות FFA והצצות מאחורי הקלעים.</span>
+          </span>
+          <svg class="icon map__yt-arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -451,6 +468,15 @@
     const btn = e.currentTarget;
     try { await navigator.clipboard.writeText('8991-6246-3830'); btn.textContent = 'הועתק!'; } catch { btn.textContent = '8991-6246-3830'; }
     setTimeout(() => { btn.textContent = 'העתקת הקוד'; }, 1600);
+  });
+  // הטריילר של המפה מתנגן בתוך האתר
+  document.querySelector('[data-trailer]').addEventListener('click', (e) => {
+    if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+    e.preventDefault();
+    const box = document.createElement('div');
+    box.className = 'map__trailer is-playing';
+    box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${e.currentTarget.dataset.trailer}?autoplay=1&rel=0&playsinline=1" title="FFA Israel Official is here" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+    e.currentTarget.replaceWith(box);
   });
 </script>
 
